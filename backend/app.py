@@ -30,8 +30,18 @@ app = Flask(__name__)
 
 # Frontend origins allowed to call the API (browsers only - hardware is not affected by CORS).
 # Add more with RESQ_CORS_ORIGINS="http://192.168.1.10:5500,http://other-host:5500"
-_cors_origins = ["http://127.0.0.1:5500", "http://localhost:5500"]
+# Production Vercel origins are included as safe defaults so the frontend can
+# reach Railway even when RESQ_CORS_ORIGINS has not been added to Railway yet.
+# Railway can still extend/override this list with RESQ_CORS_ORIGINS.
+_cors_origins = [
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "https://fridaynightfunkin-lemon.vercel.app",
+    "https://fridaynightfunkin-9gis16b0k-resq9.vercel.app",
+]
 _cors_origins += [o.strip() for o in os.getenv("RESQ_CORS_ORIGINS", "").split(",") if o.strip()]
+# Remove duplicates while preserving order.
+_cors_origins = list(dict.fromkeys(_cors_origins))
 CORS(app, origins=_cors_origins, supports_credentials=True)
 
 app.register_blueprint(lifecycle_bp)
