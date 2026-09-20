@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="ResQSync - Smart Emergency Vehicle and Traffic Coordination System"
+    >
+
+    <title>ResQSync</title>
+
+    <!-- External libraries -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        crossorigin=""
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- ResQSync styles -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/emergency.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/integration.css">
+</head>
+
+<body>
+
+    <!-- Application root -->
+    <div
+        id="app"
+        class="app-shell"
+    >
+
+        <!-- Main navigation (hidden on the login page) -->
+        <header class="app-nav" data-app-nav>
+            <a class="app-nav-brand" href="#/dashboard">
+                <i class="fa-solid fa-truck-medical" aria-hidden="true"></i>
+                ResQSync
+            </a>
+
+            <nav class="app-nav-links" aria-label="Main navigation">
+                <a data-nav-link="dashboard" href="#/dashboard">
+                    <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Dashboard
+                </a>
+                <a data-nav-link="live-map" href="#/live-map">
+                    <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Live Map
+                </a>
+                <a data-nav-link="emergencies" href="#/emergencies">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Emergencies
+                </a>
+                <a data-nav-link="vehicles" href="#/vehicles">Vehicles</a>
+                <a data-nav-link="traffic-nodes" href="#/traffic-nodes">Traffic Nodes</a>
+                <a data-nav-link="signal-control" href="#/signal-control">Signals</a>
+                <a data-nav-link="event-logs" href="#/event-logs">Logs</a>
+                <a data-nav-link="analytics" href="#/analytics">Analytics</a>
+                <a data-nav-link="request-emergency" href="#/request-emergency">Request Emergency</a>
+                <a data-nav-link="vehicle-dashboard" href="#/vehicle-dashboard">Vehicle Dashboard</a>
+            </nav>
+        </header>
+
+        <!-- Global application error -->
+        <div
+            data-app-error
+            class="app-error"
+            hidden
+        ></div>
+
+        <!-- Main application area -->
+        <main
+            id="app-content"
+            class="app-content"
+            aria-live="polite"
+        >
+
+            <!-- Route containers -->
+            <section
+                data-route-container="/login"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/dashboard"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/live-map"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/emergencies"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/emergency-details"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/vehicles"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/vehicle-details"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/traffic-nodes"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/signal-control"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/event-logs"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/analytics"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/settings"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/citizen-home"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/request-emergency"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/emergency-status"
+                class="route-container"
+                hidden
+            ></section>
+
+            <section
+                data-route-container="/vehicle-dashboard"
+                class="route-container"
+                hidden
+            ></section>
+
+        </main>
+    </div>
+
+    <!-- External libraries -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        crossorigin=""
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- ResQSync configuration -->
+    <script src="config/config.js"></script>
+
+    <!-- ResQSync utilities -->
+    <script src="js/utils/constants.js"></script>
+    <script src="js/utils/format.js"></script>
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/validators.js"></script>
+    <script src="js/utils/logger.js"></script>
+    <!-- ResQSync services -->
+<script src="js/services/api.js"></script>
+<script src="js/services/auth.js"></script>
+<script src="js/services/emergency.js"></script>
+<script src="js/services/vehicle.js"></script>
+<script src="js/services/traffic.js"></script>
+<script src="js/services/signal.js"></script>
+<script src="js/services/telemetry.js"></script>
+<script src="js/services/analytics.js"></script>
+<script src="js/services/logs.js"></script>
+<script src="js/services/websocket.js"></script>
+<script src="js/services/live.js"></script>
+
+    <!-- ResQSync core -->
+    <script src="js/core/state.js"></script>
+    <script src="js/core/permissions.js"></script>
+    <script src="js/core/router.js"></script>
+    <script src="js/core/auth.js"></script>
+    <!-- ResQSync map modules -->
+<script src="js/map/map.js"></script>
+<script src="js/map/markers.js"></script>
+<script src="js/map/routes.js"></script>
+<script src="js/map/live-layer.js"></script>
+
+<!-- ResQSync components -->
+<script src="js/components/toast.js"></script>
+<script src="js/components/modal.js"></script>
+<script src="js/components/status-badge.js"></script>
+<script src="js/components/notifications.js"></script>
+<script src="js/components/header.js"></script>
+<script src="js/components/sidebar.js"></script>
+<script src="js/components/tables.js"></script>
+
+<!-- ResQSync pages -->
+<script src="js/pages/login.js"></script>
+<script src="js/pages/dashboard.js"></script>
+<script src="js/pages/live-map.js"></script>
+<script src="js/pages/emergencies.js"></script>
+<script src="js/pages/remaining-pages.js"></script>
+
+    <!-- Application bootstrap -->
+    <script src="js/core/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+/* =========================================================
+   ResQSync - Tables
+   ========================================================= */
+
+/* -------------------------
+   Table wrapper
+   ------------------------- */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+/* -------------------------
+   Base table
+   ------------------------- */
+
+.table {
+    width: 100%;
+    min-width: 720px;
+
+    border-collapse: collapse;
+
+    background: var(--color-surface);
+
+    font-size: var(--font-size-sm);
+}
+
+/* -------------------------
+   Table head
+   ------------------------- */
+
+.table thead {
+    background: var(--color-surface-alt);
+}
+
+.table th {
+    padding: var(--space-3) var(--space-4);
+
+    border-bottom: 1px solid var(--color-border);
+
+    color: var(--color-text-secondary);
+
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* -------------------------
+   Table body
+   ------------------------- */
+
+.table td {
+    padding: var(--space-4);
+
+    border-bottom: 1px solid var(--color-border);
+
+    color: var(--color-text-secondary);
+
+    vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.table tbody tr {
+    transition:
+        background-color var(--transition-fast);
+}
+
+.table tbody tr:hover {
+    background: var(--color-surface-alt);
+}
+
+/* -------------------------
+   Cell helpers
+   ------------------------- */
+
+.table-primary {
+    color: var(--color-text) !important;
+    font-weight: var(--font-weight-semibold);
+}
+
+.table-muted {
+    color: var(--color-text-muted) !important;
+}
+
+.table-nowrap {
+    white-space: nowrap;
+}
+
+.table-center {
+    text-align: center !important;
+}
+
+.table-right {
+    text-align: right !important;
+}
+
+/* -------------------------
+   Row states
+   ------------------------- */
+
+.table-row-active {
+    background: var(--color-primary-light);
+}
+
+.table-row-warning {
+    background: var(--color-warning-light);
+}
+
+.table-row-danger {
+    background: var(--color-danger-light);
+}
+
+/* -------------------------
+   Action cells
+   ------------------------- */
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-2);
+}
+
+.table-actions .btn {
+    flex: 0 0 auto;
+}
+
+/* -------------------------
+   Vehicle / emergency ID
+   ------------------------- */
+
+.table-id {
+    color: var(--color-primary);
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* -------------------------
+   Location cell
+   ------------------------- */
+
+.table-location {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    min-width: 160px;
+}
+
+.table-location-main {
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+}
+
+.table-location-meta {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+}
+
+/* -------------------------
+   Status cell
+   ------------------------- */
+
+.table-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* -------------------------
+   Empty table state
+   ------------------------- */
+
+.table-empty {
+    padding: var(--space-8) var(--space-6) !important;
+
+    color: var(--color-text-muted) !important;
+
+    text-align: center !important;
+}
+
+/* -------------------------
+   Loading table state
+   ------------------------- */
+
+.table-loading {
+    padding: var(--space-8) !important;
+
+    color: var(--color-text-muted) !important;
+
+    text-align: center !important;
+}
+
+/* -------------------------
+   Pagination
+   ------------------------- */
+
+.table-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+
+    padding: var(--space-4);
+
+    border-top: 1px solid var(--color-border);
+}
+
+.pagination-info {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* -------------------------
+   Compact table
+   ------------------------- */
+
+.table-compact th,
+.table-compact td {
+    padding: var(--space-2) var(--space-3);
+}
+
+/* -------------------------
+   Dense event log table
+   ------------------------- */
+
+.event-table {
+    min-width: 900px;
+}
+
+.event-table .event-time {
+    width: 150px;
+    color: var(--color-text-muted);
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+    font-size: var(--font-size-xs);
+}
+
+.event-table .event-type {
+    width: 150px;
+}
+
+.event-table .event-source {
+    width: 160px;
+}
+
+.event-table .event-message {
+    min-width: 300px;
+}
+
+/* -------------------------
+   Responsive
+   ------------------------- */
+
+@media (max-width: 640px) {
+    .table-wrapper {
+        border-radius: var(--radius-md);
+    }
+
+    .table {
+        min-width: 640px;
+    }
+
+    .table th,
+    .table td {
+        padding: var(--space-3);
+    }
+
+    .table-pagination {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pagination-controls {
+        width: 100%;
+    }
+}
