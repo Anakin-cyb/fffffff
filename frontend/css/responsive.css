@@ -1,0 +1,429 @@
+/* =========================================================
+   ResQSync - Responsive Styles
+   ========================================================= */
+
+/* -------------------------
+   Large desktop
+   ------------------------- */
+
+@media (min-width: 1440px) {
+    :root {
+        --content-max-width: 1800px;
+    }
+
+    .app-content {
+        padding-inline: var(--space-8);
+    }
+}
+
+/* -------------------------
+   Desktop / laptop
+   ------------------------- */
+
+@media (max-width: 1200px) {
+    .container {
+        padding-inline: var(--space-5);
+    }
+
+    .app-content {
+        padding-inline: var(--space-5);
+    }
+}
+
+/* -------------------------
+   Tablet
+   ------------------------- */
+
+@media (max-width: 900px) {
+    :root {
+        --header-height: 60px;
+        --sidebar-width: 240px;
+    }
+
+    .container {
+        padding-inline: var(--space-4);
+    }
+
+    .app-content {
+        padding: var(--space-4);
+    }
+
+    .app-shell.has-sidebar .app-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-actions {
+        justify-content: flex-start;
+    }
+
+    .grid-3,
+    .grid-4 {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .content-split,
+    .content-split-wide {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* -------------------------
+   Small tablet
+   ------------------------- */
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .section-header .page-actions {
+        width: 100%;
+    }
+
+    .page-actions {
+        width: 100%;
+    }
+
+    .page-actions .btn {
+        flex: 0 0 auto;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+    .settings-page {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-navigation {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .settings-nav-item {
+        white-space: nowrap;
+    }
+
+    .dashboard-header,
+    .detail-header,
+    .vehicle-hero,
+    .node-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-header-actions,
+    .detail-actions,
+    .vehicle-hero-actions {
+        width: 100%;
+    }
+
+    .telemetry-grid,
+    .analytics-summary {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* -------------------------
+   Mobile
+   ------------------------- */
+
+@media (max-width: 640px) {
+    :root {
+        --space-6: 20px;
+        --space-8: 28px;
+    }
+
+    body {
+        font-size: var(--font-size-sm);
+    }
+
+    .container {
+        padding-inline: var(--space-4);
+    }
+
+    .app-content {
+        padding: var(--space-4);
+    }
+
+    .page {
+        width: 100%;
+    }
+
+    .page-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .page-subtitle {
+        font-size: var(--font-size-xs);
+    }
+
+    .section {
+        margin-bottom: var(--space-6);
+    }
+
+    .card {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+    }
+
+    .card-header,
+    .card-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .card-footer {
+        width: 100%;
+    }
+
+    .card-footer .btn {
+        width: 100%;
+    }
+
+    .stat-card {
+        padding: var(--space-4);
+    }
+
+    .stat-value {
+        font-size: var(--font-size-xl);
+    }
+
+    .dashboard-stats,
+    .telemetry-grid,
+    .analytics-summary,
+    .signal-grid,
+    .citizen-action-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid,
+    .vehicle-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-map-panel,
+    .vehicle-dashboard-map {
+        min-height: 340px;
+    }
+
+    .dashboard-map,
+    .map-container,
+    .map-container .leaflet-container {
+        min-height: 300px;
+    }
+
+    .emergency-card,
+    .emergency-banner {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .emergency-actions,
+    .emergency-banner-actions,
+    .emergency-action-bar {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .emergency-actions .btn,
+    .emergency-banner-actions .btn,
+    .emergency-action-bar .btn {
+        flex: 1 1 auto;
+    }
+
+    .emergency-data-grid,
+    .transport-state {
+        grid-template-columns: 1fr;
+    }
+
+    .gps-info,
+    .eta-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .map-overlay {
+        max-width: calc(100% - 24px);
+    }
+
+    .map-controls {
+        top: var(--space-2);
+        right: var(--space-2);
+    }
+
+    .map-control-button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .login-page,
+    .citizen-page {
+        padding: var(--space-4);
+    }
+
+    .login-card,
+    .emergency-request-card,
+    .emergency-status-hero {
+        padding: var(--space-5);
+    }
+
+    .login-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .citizen-hero {
+        padding: var(--space-6);
+    }
+
+    .citizen-hero-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .vehicle-hero {
+        padding: var(--space-4);
+    }
+
+    .vehicle-hero-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .node-header {
+        padding: var(--space-4);
+    }
+
+    .signal-controls {
+        width: 100%;
+    }
+
+    .signal-controls .btn {
+        flex: 1 1 auto;
+    }
+
+    .table-pagination {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .pagination-controls {
+        width: 100%;
+    }
+}
+
+/* -------------------------
+   Very small mobile
+   ------------------------- */
+
+@media (max-width: 420px) {
+    .app-content {
+        padding: var(--space-3);
+    }
+
+    .container {
+        padding-inline: var(--space-3);
+    }
+
+    .page-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .btn {
+        min-height: 38px;
+        padding-inline: var(--space-3);
+    }
+
+    .btn-lg {
+        min-height: 44px;
+        padding-inline: var(--space-4);
+    }
+
+    .btn-icon {
+        width: 38px;
+        min-width: 38px;
+    }
+
+    .page-actions,
+    .dashboard-header-actions,
+    .detail-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-actions .btn,
+    .dashboard-header-actions .btn,
+    .detail-actions .btn {
+        width: 100%;
+    }
+
+    .priority-select {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-actions,
+    .emergency-banner-actions,
+    .emergency-action-bar {
+        flex-direction: column;
+    }
+
+    .emergency-actions .btn,
+    .emergency-banner-actions .btn,
+    .emergency-action-bar .btn {
+        width: 100%;
+    }
+
+    .settings-navigation {
+        gap: var(--space-1);
+    }
+
+    .settings-nav-item {
+        padding-inline: var(--space-2);
+    }
+}
+
+/* -------------------------
+   Reduced motion
+   ------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

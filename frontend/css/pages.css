@@ -1,0 +1,916 @@
+/* =========================================================
+   ResQSync - Page Specific Styles
+   ========================================================= */
+
+/* -------------------------
+   Login page
+   ------------------------- */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--space-6);
+
+    background: var(--color-bg);
+}
+
+.login-card {
+    width: min(100%, 440px);
+
+    padding: var(--space-8);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.login-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: var(--space-6);
+
+    text-align: center;
+}
+
+.login-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: var(--space-4);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+
+    font-size: var(--font-size-xl);
+}
+
+.login-title {
+    color: var(--color-text);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.login-subtitle {
+    margin-top: var(--space-2);
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.login-footer {
+    margin-top: var(--space-5);
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    text-align: center;
+}
+
+/* -------------------------
+   Detail page
+   ------------------------- */
+
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: var(--space-4);
+}
+
+.detail-title-group {
+    min-width: 0;
+}
+
+.detail-title {
+    color: var(--color-text);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.detail-subtitle {
+    margin-top: var(--space-1);
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.detail-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+/* -------------------------
+   Vehicle page
+   ------------------------- */
+
+.vehicle-detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.vehicle-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-5);
+
+    padding: var(--space-6);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.vehicle-hero-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+
+    min-width: 0;
+}
+
+.vehicle-hero-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+
+    font-size: var(--font-size-xl);
+
+    flex: 0 0 auto;
+}
+
+.vehicle-hero-title {
+    color: var(--color-text);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.vehicle-hero-meta {
+    margin-top: var(--space-1);
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.vehicle-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+/* -------------------------
+   Vehicle telemetry
+   ------------------------- */
+
+.telemetry-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: var(--space-4);
+}
+
+.telemetry-item {
+    padding: var(--space-4);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.telemetry-label {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+}
+
+.telemetry-value {
+    margin-top: var(--space-2);
+
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.telemetry-unit {
+    margin-left: var(--space-1);
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-regular);
+}
+
+/* -------------------------
+   Traffic node page
+   ------------------------- */
+
+.node-detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.node-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-4);
+
+    padding: var(--space-5);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.node-header-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+
+    min-width: 0;
+}
+
+.node-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: var(--radius-md);
+
+    background: var(--color-info-light);
+    color: var(--color-info);
+
+    flex: 0 0 auto;
+}
+
+.node-name {
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.node-id {
+    margin-top: 2px;
+
+    color: var(--color-text-muted);
+
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
+    font-size: var(--font-size-xs);
+}
+
+/* -------------------------
+   Signal control page
+   ------------------------- */
+
+.signal-control-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.signal-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: var(--space-4);
+}
+
+.signal-card {
+    padding: var(--space-5);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.signal-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-4);
+
+    margin-bottom: var(--space-4);
+}
+
+.signal-name {
+    color: var(--color-text);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+}
+
+.signal-state {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+}
+
+.signal-light {
+    width: 18px;
+    height: 18px;
+
+    border: 3px solid var(--color-surface);
+
+    border-radius: var(--radius-full);
+
+    box-shadow:
+        0 0 0 1px var(--color-border-dark);
+}
+
+.signal-light.red {
+    background: var(--color-signal-red);
+}
+
+.signal-light.yellow {
+    background: var(--color-signal-yellow);
+}
+
+.signal-light.green {
+    background: var(--color-signal-green);
+}
+
+.signal-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+/* -------------------------
+   Analytics page
+   ------------------------- */
+
+.analytics-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.analytics-summary {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: var(--space-4);
+}
+
+.analytics-card {
+    min-height: 320px;
+
+    padding: var(--space-5);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.analytics-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: var(--space-4);
+
+    margin-bottom: var(--space-4);
+}
+
+.analytics-card-title {
+    color: var(--color-text);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+}
+
+.analytics-card-description {
+    margin-top: var(--space-1);
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+}
+
+.analytics-chart {
+    width: 100%;
+    min-height: 240px;
+}
+
+/* -------------------------
+   Settings page
+   ------------------------- */
+
+.settings-page {
+    display: grid;
+    grid-template-columns:
+        240px
+        minmax(0, 1fr);
+
+    gap: var(--space-6);
+}
+
+.settings-navigation {
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--space-3);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    align-self: start;
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+
+    width: 100%;
+
+    padding: var(--space-3);
+
+    border-radius: var(--radius-md);
+
+    color: var(--color-text-secondary);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+
+    text-align: left;
+}
+
+.settings-nav-item:hover {
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+}
+
+.settings-nav-item.active {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.settings-content {
+    min-width: 0;
+}
+
+.settings-section {
+    margin-bottom: var(--space-6);
+}
+
+.settings-section:last-child {
+    margin-bottom: 0;
+}
+
+.settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-5);
+
+    padding: var(--space-4) 0;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.settings-row:last-child {
+    border-bottom: 0;
+}
+
+.settings-info {
+    min-width: 0;
+}
+
+.settings-title {
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.settings-description {
+    margin-top: 2px;
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+}
+
+/* -------------------------
+   Citizen pages
+   ------------------------- */
+
+.citizen-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+
+    padding: var(--space-6);
+}
+
+.citizen-hero {
+    padding: var(--space-8);
+
+    border-radius: var(--radius-xl);
+
+    background: var(--color-secondary);
+    color: var(--color-text-inverse);
+}
+
+.citizen-hero-title {
+    color: var(--color-text-inverse);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.citizen-hero-description {
+    max-width: 700px;
+
+    margin-top: var(--space-3);
+
+    color: #cbd5e1;
+    font-size: var(--font-size-md);
+}
+
+.citizen-action-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: var(--space-4);
+}
+
+.citizen-action-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+
+    padding: var(--space-6);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    transition:
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.citizen-action-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.citizen-action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: var(--radius-md);
+
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.citizen-action-title {
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.citizen-action-description {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+/* -------------------------
+   Request emergency page
+   ------------------------- */
+
+.request-emergency-page {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.emergency-request-header {
+    margin-bottom: var(--space-6);
+}
+
+.emergency-request-title {
+    color: var(--color-text);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.emergency-request-description {
+    margin-top: var(--space-2);
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.emergency-request-card {
+    padding: var(--space-6);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+/* -------------------------
+   Emergency status page
+   ------------------------- */
+
+.emergency-status-page {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+.emergency-status-hero {
+    padding: var(--space-6);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.emergency-status-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: var(--space-4);
+}
+
+.emergency-status-title {
+    color: var(--color-text);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.emergency-status-id {
+    margin-top: var(--space-1);
+
+    color: var(--color-text-muted);
+
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
+    font-size: var(--font-size-xs);
+}
+
+.emergency-status-eta {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: var(--space-3);
+
+    margin-top: var(--space-5);
+}
+
+/* -------------------------
+   Vehicle dashboard page
+   ------------------------- */
+
+.vehicle-dashboard-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.vehicle-dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-4);
+
+    padding: var(--space-5);
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.vehicle-dashboard-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.vehicle-dashboard-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(300px, 0.8fr);
+
+    gap: var(--space-6);
+}
+
+.vehicle-dashboard-map {
+    min-height: 480px;
+}
+
+.vehicle-dashboard-side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+/* -------------------------
+   Empty / not-found page
+   ------------------------- */
+
+.page-empty {
+    min-height: 360px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--space-6);
+
+    text-align: center;
+}
+
+.page-empty-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    margin-bottom: var(--space-4);
+
+    border-radius: var(--radius-full);
+
+    background: var(--color-surface-alt);
+    color: var(--color-text-muted);
+
+    font-size: var(--font-size-xl);
+}
+
+.page-empty-title {
+    color: var(--color-text);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+.page-empty-description {
+    max-width: 520px;
+
+    margin-top: var(--space-2);
+
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+/* -------------------------
+   Responsive
+   ------------------------- */
+
+@media (max-width: 1100px) {
+    .telemetry-grid,
+    .analytics-summary {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .settings-page {
+        grid-template-columns: 200px minmax(0, 1fr);
+    }
+
+    .vehicle-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .detail-header,
+    .vehicle-hero,
+    .node-header,
+    .signal-card-header,
+    .emergency-status-heading,
+    .vehicle-dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .settings-page {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-navigation {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .settings-nav-item {
+        white-space: nowrap;
+    }
+
+    .signal-grid,
+    .citizen-action-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-status-eta {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .login-page,
+    .citizen-page {
+        padding: var(--space-4);
+    }
+
+    .login-card,
+    .emergency-request-card,
+    .emergency-status-hero {
+        padding: var(--space-5);
+    }
+
+    .citizen-hero {
+        padding: var(--space-6);
+    }
+
+    .citizen-hero-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .telemetry-grid,
+    .analytics-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-hero-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
