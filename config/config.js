@@ -1,7 +1,7 @@
 window.RESQ_CONFIG = Object.freeze({
     APP_NAME: "ResQSync",
 
-    API_BASE_URL: "",
+    API_BASE_URL: "fffffff-production-13f8.up.railway.app",
 
     // The Flask backend has no WebSocket endpoint; live data comes from polling
     // GET /api/live/snapshot (see js/services/live.js).
