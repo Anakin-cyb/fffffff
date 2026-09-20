@@ -9,10 +9,10 @@ import mysql.connector
 
 def get_connection():
     return mysql.connector.connect(
-        host=os.getenv("RESQ_DB_HOST", "localhost"),
-        port=int(os.getenv("RESQ_DB_PORT", "3306")),
-        user=os.getenv("RESQ_DB_USER", "root"),
-        password=os.getenv("RESQ_DB_PASSWORD", ""),
-        database=os.getenv("RESQ_DB_NAME", "resqsync"),
+        host=os.getenv("MYSQLHOST", "localhost"),
+        port=int(os.getenv("MYSQLPORT", "3306")),
+        user=os.getenv("MYSQLUSER", "root"),
+        password=os.getenv("MYSQLPASSWORD", ""),
+        database=os.getenv("MYSQLDATABASE", "resqsync"),
         time_zone="+00:00",
     )
