@@ -147,3 +147,8 @@ available.
 ## Vercel deployment
 
 See `VERCEL_DEPLOY.md`. This package includes `vercel.json`, a Vercel Python entrypoint at `api/index.py`, root-level Python dependencies, and a same-origin production frontend configuration.
+
+
+## Railway + MySQL deployment
+
+See `RAILWAY_MYSQL_DEPLOY.md` for the production setup: Vercel frontend → Railway Flask API → Railway MySQL.
