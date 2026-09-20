@@ -38,3 +38,10 @@ On Railway, set the backend environment variable:
 If using a custom domain, include it as an additional comma-separated origin.
 
 After changing environment variables, redeploy/restart the Railway service.
+
+## Included original system assets
+
+The repository also retains the original ResQSync architecture, documentation, AI,
+hardware/firmware, traffic-node, vehicle-node, evidence, and legacy frontend assets.
+The production web deployment uses the top-level `frontend/` directory and the
+Railway Flask application under `backend/`.

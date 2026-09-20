@@ -1,0 +1,1 @@
+ResQSync project license: define project-specific licensing before public distribution.

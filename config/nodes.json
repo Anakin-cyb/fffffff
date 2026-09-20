@@ -1,0 +1,15 @@
+{
+  "vehicles": {
+    "VN-AMB-001": {
+      "name": "Demo Ambulance",
+      "type": "ambulance",
+      "enabled": true
+    }
+  },
+  "traffic_nodes": {
+    "TN-BPIT-001": {
+      "name": "Demo Junction",
+      "enabled": true
+    }
+  }
+}

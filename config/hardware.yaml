@@ -1,0 +1,69 @@
+# DO NOT fill guessed GPIO/pin numbers.
+# Populate this file only after the exact boards/modules and wiring are confirmed.
+
+vehicle_node:
+  board: ESP32
+  gps:
+    model: TODO
+    uart: TODO
+    pins: TODO
+  lora:
+    model: TODO
+    interface: TODO
+    pins: TODO
+  oled:
+    model: TODO
+    interface: TODO
+    pins: TODO
+  emergency_switch:
+    type: slide_switch
+    pin: TODO
+  microsd:
+    model: TODO
+    interface: TODO
+    pins: TODO
+
+traffic_node:
+  board: Raspberry Pi
+  camera:
+    model: Raspberry Pi Camera
+    interface: CSI
+  lora:
+    model: TODO
+    interface: TODO
+    pins: TODO
+  relay:
+    model: TODO
+    channels: 4
+    logic_level: TODO
+    pins: TODO
+  display:
+    model: TODO
+    interface: TODO
+    pins: TODO
+  buttons:
+    request: TODO
+    approve: TODO
+    normal: TODO
+  status_leds:
+    request: TODO
+    approved: TODO
+    recording: TODO
+    fault: TODO
+  sensors:
+    gas:
+      model: TODO
+      interface: TODO
+      pins: TODO
+    heat:
+      model: TODO
+      interface: TODO
+      pins: TODO
+  dfplayer:
+    model: DFPlayer Mini
+    interface: TODO
+    pins: TODO
+  microsd:
+    model: TODO
+    interface: TODO
+    pins: TODO
