@@ -1,0 +1,211 @@
+/* =========================================
+   SETTINGS PAGE
+   ========================================= */
+
+#page-settings {
+    width: 100%;
+    min-height: 100%;
+    padding: var(--spacing-lg);
+    box-sizing: border-box;
+    background: var(--color-bg-primary);
+}
+
+#page-settings .section {
+    width: 100%;
+}
+
+/* Main settings layout */
+.settings-container {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: var(--spacing-lg);
+    width: 100%;
+    margin-top: var(--spacing-lg);
+}
+
+/* Left settings menu */
+.settings-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+}
+
+.settings-menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.settings-menu-item:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.settings-menu-item.active {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+
+.settings-menu-item i {
+    width: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.settings-menu-label {
+    flex: 1;
+}
+
+/* Right content */
+.settings-content {
+    min-width: 0;
+    padding: var(--spacing-xl);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.settings-tab {
+    display: none;
+}
+
+.settings-tab.active {
+    display: block;
+}
+
+.settings-section {
+    width: 100%;
+}
+
+.settings-section-title {
+    margin: 0 0 var(--spacing-lg);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+/* Individual settings rows */
+.settings-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.settings-option:first-of-type {
+    padding-top: 0;
+}
+
+.settings-option:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.settings-option-label {
+    flex: 1;
+    min-width: 0;
+}
+
+.settings-option-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.settings-option-description {
+    margin-top: 0.3rem;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.settings-option-control {
+    display: flex;
+    align-items: center;
+    min-width: 180px;
+    justify-content: flex-end;
+    color: var(--color-text-primary);
+}
+
+.settings-option-control strong {
+    font-weight: 600;
+}
+
+/* Select */
+.settings-option-control select {
+    min-width: 160px;
+}
+
+/* About box */
+#tab-about .settings-section > div {
+    border: 1px solid var(--color-border);
+}
+
+/* Logout area */
+#page-settings .btn-danger {
+    margin-top: var(--spacing-lg);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+    .settings-container {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .settings-menu-item {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    .settings-content {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 600px) {
+    #page-settings {
+        padding: var(--spacing-md);
+    }
+
+    .settings-option {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .settings-option-control {
+        width: 100%;
+        min-width: 0;
+        justify-content: flex-start;
+    }
+
+    .settings-option-control select {
+        width: 100%;
+    }
+}

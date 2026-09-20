@@ -8,6 +8,7 @@
     const esc = (v) => String(v ?? "").replace(/[&<>\"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
     const api = () => window.RESQ_API;
     const unwrap = r => r && Object.prototype.hasOwnProperty.call(r, "data") ? r.data : r;
+    const asArray = value => Array.isArray(value) ? value : (value && Array.isArray(value.data) ? value.data : []);
     const page = path => document.querySelector(`[data-route-container="/${path}"]`);
     const table = (headers, rows) => `<div class="table-wrapper"><table class="data-table"><thead><tr>${headers.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows.length ? rows.join("") : `<tr><td colspan="${headers.length}"><div class="empty-state">No records found</div></td></tr>`}</tbody></table></div>`;
     const shell = (title, subtitle, body) => `<div class="page-header"><div><h1 class="page-title">${esc(title)}</h1><p class="page-subtitle">${esc(subtitle)}</p></div></div><div class="page-content">${body}</div>`;
@@ -20,24 +21,24 @@
     }
 
     async function vehicles(c) {
-        const data = unwrap(await api().get("/api/vehicles"));
+        const data = asArray(unwrap(await api().get("/api/vehicles")));
         c.innerHTML = shell("Vehicles", "Ambulance fleet and live status", table(["Vehicle","Type","Driver","Status","GPS","Location"], data.map(v=>`<tr><td>${esc(v.vehicleNumber)}</td><td>${esc(v.vehicleType)}</td><td>${esc(v.driverName||"—")}</td><td>${esc(v.status)}</td><td>${esc(v.gpsStatus||"OFFLINE")}</td><td>${v.latitude!=null?`${Number(v.latitude).toFixed(5)}, ${Number(v.longitude).toFixed(5)}`:"—"}</td></tr>`)));
     }
     async function traffic(c) {
-        const data = unwrap(await api().get("/api/traffic-nodes"));
+        const data = asArray(unwrap(await api().get("/api/traffic-nodes")));
         c.innerHTML = shell("Traffic Nodes", "Junction health and congestion", table(["Node","Status","Connection","Congestion","Coordinates"], data.map(n=>`<tr><td>${esc(n.nodeName)}</td><td>${esc(n.status)}</td><td>${esc(n.connectionStatus||"OFFLINE")}</td><td>${esc(n.congestionLevel||"—")}</td><td>${n.latitude!=null?`${Number(n.latitude).toFixed(5)}, ${Number(n.longitude).toFixed(5)}`:"—"}</td></tr>`)));
     }
     async function signals(c) {
-        const data = unwrap(await api().get("/api/traffic-signals"));
+        const data = asArray(unwrap(await api().get("/api/traffic-signals")));
         c.innerHTML = shell("Signal Control", "Emergency corridor signal states", table(["Signal","State","Override","Node"], data.map(s=>`<tr><td>${esc(s.name)}</td><td><span class="status-badge">${esc(s.signalState||s.status)}</span></td><td>${s.emergencyOverride?"ACTIVE":"Normal"}</td><td>${esc(s.nodeId||"—")}</td></tr>`)));
     }
     async function logs(c) {
-        const data = unwrap(await api().get("/api/events", {limit: 200}));
+        const data = asArray(unwrap(await api().get("/api/events", {limit: 200})));
         c.innerHTML = shell("Event Logs", "System and emergency activity", table(["Time","Type","Title","Severity","Emergency"], data.map(e=>`<tr><td>${esc(e.createdAt||"—")}</td><td>${esc(e.event_type||e.eventType)}</td><td>${esc(e.title||"—")}</td><td>${esc(e.severity||"—")}</td><td>${esc(e.emergencyId||"—")}</td></tr>`)));
     }
     async function analytics(c) {
         const [d0,a0] = await Promise.all([api().get("/api/analytics/dashboard"), api().get("/api/analytics")]);
-        const d=unwrap(d0), a=unwrap(a0);
+        const d=unwrap(d0) || {}, a=unwrap(a0) || {};
         c.innerHTML = shell("Analytics", "Operational overview", `<div class="dashboard-grid">${card("Total Emergencies",d.totalEmergencies??d.summary?.totalEmergencies??a.emergencies?.total,"All recorded incidents")}${card("Active Emergencies",d.activeEmergencies??d.summary?.activeEmergencies??a.emergencies?.active,"Currently open")}${card("Available Vehicles",d.availableVehicles??d.summary?.availableVehicles??a.vehicles?.available,"Ready for dispatch")}${card("Traffic Nodes",d.totalTrafficNodes??d.summary?.totalTrafficNodes??a.traffic?.nodes,"Registered junctions")}</div>`);
     }
     async function emergencyDetails(c) {

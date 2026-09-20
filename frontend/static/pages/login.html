@@ -1,0 +1,108 @@
+<div class="page" id="page-login">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <i class="fas fa-heartbeat" style="color: var(--color-danger);"></i>
+                </div>
+                <h1 class="login-title">ResQSync</h1>
+                <p class="login-subtitle">Emergency Response System</p>
+            </div>
+
+            <form class="login-form" id="login-form" onsubmit="LoginPage.handleLogin(event)">
+                <div class="form-group">
+                    <label for="email" class="label-required">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="your@email.com"
+                    >
+                    <div class="error-message" id="email-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="label-required">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        placeholder="••••••••"
+                    >
+                    <div class="error-message" id="password-error"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span id="login-button-text">Login</span>
+                    <span id="login-loading" style="display: none;" class="spin"></span>
+                </button>
+
+                <div id="login-error" class="alert alert-danger" style="display: none;"></div>
+            </form>
+
+            <div class="login-footer">
+                <p>Demo Account:</p>
+                <p>Email: admin@resqsync.com</p>
+                <p>Password: password123</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const LoginPage = {
+    init() {
+        Logger.info('LoginPage', 'Initialized');
+    },
+
+    async handleLogin(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const errorDiv = document.getElementById('login-error');
+        const buttonText = document.getElementById('login-button-text');
+        const loading = document.getElementById('login-loading');
+
+        errorDiv.style.display = 'none';
+        errorDiv.innerHTML = '';
+
+        if (!Validators.isEmail(email)) {
+            document.getElementById('email-error').textContent = 'Invalid email';
+            return;
+        }
+
+        if (!Validators.isPasswordStrong(password)) {
+            document.getElementById('password-error').textContent = 'Password too short';
+            return;
+        }
+
+        buttonText.style.display = 'none';
+        loading.style.display = 'inline-block';
+
+        try {
+            const result = await AuthManager.login(email, password);
+
+            if (result.success) {
+                Toast.success('Login successful!');
+
+                setTimeout(() => {
+                    Router.navigateTo('dashboard');
+                }, 500);
+            } else {
+                errorDiv.textContent = result.error || 'Login failed';
+                errorDiv.style.display = 'block';
+                buttonText.style.display = 'inline';
+                loading.style.display = 'none';
+            }
+        } catch (error) {
+            errorDiv.textContent = error.message || 'An error occurred';
+            errorDiv.style.display = 'block';
+            buttonText.style.display = 'inline';
+            loading.style.display = 'none';
+        }
+    }
+};
+</script>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="ResQSync - Smart Emergency Vehicle & Traffic Management System"
+    >
+
+    <meta name="theme-color" content="#0f172a">
+
+    <title>ResQSync - Emergency Response & Traffic Management</title>
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>"
+    >
+
+    <!-- External Libraries -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <!-- Application CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/emergency.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+</head>
+
+<body>
+
+    <!-- Main Application Root -->
+    <div id="app-root">
+
+        <!-- Sidebar -->
+        <aside
+            class="sidebar"
+            id="app-sidebar"
+            style="display: none;"
+        >
+
+            <div class="sidebar-header">
+
+               <div class="sidebar-logo">
+    <img
+         src="{{ url_for('static', filename='assets/resqsync-logo-transparent.png') }}"
+        alt="ResQSync"
+        class="sidebar-logo-image"
+    >
+</div>
+
+                <button
+                    type="button"
+                    class="sidebar-toggle-mobile"
+                    onclick="document.getElementById('app-sidebar').classList.toggle('open')"
+                    aria-label="Close sidebar"
+                >
+                    <i class="fas fa-times"></i>
+                </button>
+
+            </div>
+
+            <nav
+                class="sidebar-nav"
+                id="sidebar-nav"
+            ></nav>
+
+            <div
+                class="sidebar-footer"
+                id="sidebar-footer"
+            ></div>
+
+        </aside>
+
+        <!-- Application Container -->
+        <div class="app-container">
+
+            <!-- Header -->
+            <header
+                class="header"
+                id="app-header"
+                style="display: none;"
+            >
+
+                <div class="header-left">
+
+                    <button
+                        type="button"
+                        class="header-toggle-sidebar"
+                        onclick="document.getElementById('app-sidebar').classList.toggle('open')"
+                        aria-label="Open sidebar"
+                    >
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <h1
+                        class="header-title"
+                        id="header-title"
+                    >
+                        ResQSync
+                    </h1>
+
+                </div>
+
+                <div class="header-right">
+
+                    <div
+                        class="header-notifications"
+                        id="header-notifications"
+                    ></div>
+
+                    <div
+                        class="header-user"
+                        id="header-user"
+                    ></div>
+
+                </div>
+
+            </header>
+
+            <!-- Main Content -->
+            <main
+                class="app-content"
+                id="app-content"
+            >
+
+                <!-- Page Containers -->
+                <div
+                    id="page-login"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-dashboard"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-live-map"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-emergencies"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-emergency-details"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-vehicles"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-vehicle-details"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-traffic-nodes"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-signal-control"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-event-logs"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-analytics"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-settings"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-citizen-home"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-request-emergency"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-emergency-status"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-vehicle-dashboard"
+                    class="page"
+                ></div>
+
+                <div
+                    id="page-public-map"
+                    class="page"
+                ></div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- Shared Containers -->
+    <div id="toast-container"></div>
+
+    <div id="modal-container"></div>
+
+    <div id="notification-container"></div>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <!-- Configuration -->
+    <script src="{{ url_for('static', filename='config/config.js') }}"></script>
+
+    <!-- Utilities -->
+    <script src="{{ url_for('static', filename='js/utils/constants.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils/format.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils/logger.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils/storage.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils/validators.js') }}"></script>
+
+    <!-- Core / API -->
+    <script src="{{ url_for('static', filename='js/services/api.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/core/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/core/permissions.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/core/state.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/core/router.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/core/app.js') }}"></script>
+
+    <!-- Services -->
+    <script src="{{ url_for('static', filename='js/services/auth.service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/services/emergency.service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/services/vehicle.service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/services/traffic.service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/services/signal.service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/services/telemetry.service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/services/analytics.service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/services/logs.service.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/services/websocket.service.js') }}"></script>
+
+    <!-- Components -->
+    <script src="{{ url_for('static', filename='js/components/toast.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/components/modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/components/status-badge.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/components/notifications.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/components/sidebar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/components/header.js') }}"></script>
+
+    <!-- Map -->
+    <script src="{{ url_for('static', filename='js/map/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/map/markers.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/map/routes.js') }}"></script>
+
+    <!-- Page Controllers -->
+    <script src="{{ url_for('static', filename='js/pages/login.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/live-map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/emergencies.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/emergency-details.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/vehicles.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/vehicle-details.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/traffic-nodes.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/signal-control.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/event-logs.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/analytics.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/settings.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/citizen-home.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/emergency-request.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/emergency-status.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pages/vehicle-dashboard.js') }}"></script>
+
+    <!-- Application Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                ResQSyncApp.initialize();
+            } catch (error) {
+                console.error(
+                    'Fatal error during initialization:',
+                    error
+                );
+
+                const appRoot =
+                    document.getElementById('app-root');
+
+                if (appRoot) {
+                    appRoot.innerHTML = `
+                        <div
+                            class="error-state"
+                            style="
+                                height: 100vh;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: var(--color-bg-primary);
+                            "
+                        >
+                            <div style="text-align: center;">
+                                <div
+                                    style="
+                                        font-size: 64px;
+                                        margin-bottom: 20px;
+                                        color: var(--color-danger);
+                                    "
+                                >
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+
+                                <h1
+                                    style="
+                                        font-size: var(--font-size-2xl);
+                                        margin-bottom: 10px;
+                                    "
+                                >
+                                    Application Error
+                                </h1>
+
+                                <p
+                                    style="
+                                        color: var(--color-text-secondary);
+                                        margin-bottom: 20px;
+                                    "
+                                >
+                                    ${
+                                        error.message ||
+                                        'Failed to initialize application'
+                                    }
+                                </p>
+
+                                <button
+                                    class="btn btn-primary"
+                                    onclick="location.reload()"
+                                >
+                                    Reload Page
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        });
+
+        window.addEventListener('beforeunload', () => {
+            if (
+                typeof WebSocketService !== 'undefined' &&
+                WebSocketService &&
+                typeof WebSocketService.disconnect === 'function'
+            ) {
+                WebSocketService.disconnect();
+            }
+        });
+
+        window.addEventListener('error', (event) => {
+            if (
+                typeof Logger !== 'undefined' &&
+                Logger &&
+                typeof Logger.error === 'function'
+            ) {
+                Logger.error('Global', 'Unhandled error', {
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno
+                });
+            }
+        });
+
+        window.addEventListener(
+            'unhandledrejection',
+            (event) => {
+                if (
+                    typeof Logger !== 'undefined' &&
+                    Logger &&
+                    typeof Logger.error === 'function'
+                ) {
+                    Logger.error(
+                        'Global',
+                        'Unhandled promise rejection',
+                        {
+                            reason: event.reason
+                        }
+                    );
+                }
+            }
+        );
+    </script>
+
+</body>
+
+</html>
